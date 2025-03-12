@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_payment_example
+id: example_payment_gateway
+label: 'Example Payment Gateway'
+weight: null
+plugin: example_onsite
+configuration:
+  display_label: Example
+  mode: test
+  payment_method_types:
+    - credit_card
+  collect_billing_information: true
+  api_key: test
+conditions: {  }
+conditionOperator: AND

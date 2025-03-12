@@ -1,0 +1,11 @@
+{
+    "name": "zaporylie/commerce_recipe_events_tickets",
+    "description": "Adds option to purchase tickets on top of Drupal CMS Events recipe.",
+    "type": "drupal-recipe",
+    "license": ["GPL-2.0-or-later"],
+    "require": {
+        "drupal/core": ">=10.3",
+        "drupal/drupal_cms_events": "~1.0.0"
+    },
+    "version": "1.0.2"
+}

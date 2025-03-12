@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_cart
+    - commerce_checkout
+third_party_settings:
+  commerce_cart:
+    cart_block_view: commerce_cart_block
+    cart_form_view: event_cart_form
+    cart_expiration:
+      number: 10
+      unit: minute
+    enable_cart_message: true
+  commerce_checkout:
+    checkout_flow: event_checkout
+id: event
+label: Event
+traits: {  }
+locked: false
+workflow: order_default
+numberPattern: null
+refresh_mode: customer
+refresh_frequency: 300
+sendReceipt: true
+receiptBcc: ''
+receiptSubject: ''

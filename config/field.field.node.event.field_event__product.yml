@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.event_ticket
+    - field.storage.node.field_event__product
+    - node.type.event
+id: node.event.field_event__product
+field_name: field_event__product
+entity_type: node
+bundle: event
+label: Ticket
+description: "Enter ticket product detail if you're planning on selling access to this event."
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:commerce_product'
+  handler_settings:
+    target_bundles:
+      event_ticket: event_ticket
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

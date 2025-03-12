@@ -1,0 +1,11 @@
+uuid: 44c70bcd-6af8-4732-9f0b-5f520219f489
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+id: commerce_product_variation.inline_entity_form
+label: 'Inline Entity Form'
+description: ''
+targetEntityType: commerce_product_variation
+cache: true

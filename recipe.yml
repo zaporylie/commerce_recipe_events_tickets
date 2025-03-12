@@ -1,0 +1,87 @@
+name: Events Tickets
+description: Adds option to purchase tickets on top of Drupal CMS Events recipe.
+type: Drupal CMS
+recipes:
+  - drupal_cms_events
+install:
+  - commerce_product
+  - commerce_checkout
+  - commerce_payment_example
+config:
+  strict: false
+  import:
+    commerce_store:
+      - views.view.commerce_stores
+    commerce_checkout:
+      - core.entity_form_mode.commerce_order_item.add_to_cart
+      - views.view.commerce_checkout_order_summary
+    commerce_cart:
+      - views.view.commerce_carts
+      - core.entity_form_mode.commerce_order_item.add_to_cart
+      - core.entity_view_mode.commerce_product_attribute_value.add_to_cart
+    commerce_order:
+      - commerce_number_pattern.commerce_number_pattern.order_default
+      - commerce_order.settings
+      - core.entity_form_display.profile.customer.default
+      - core.entity_form_mode.profile.billing
+      - core.entity_view_display.profile.customer.admin
+      - core.entity_view_display.profile.customer.default
+      - core.entity_view_mode.commerce_order.user
+      - core.entity_view_mode.profile.admin
+      - field.field.profile.customer.address
+      - field.storage.profile.address
+      - profile.type.customer
+      - system.action.commerce_order_delete_action
+      - system.action.commerce_order_unlock
+      - views.view.commerce_order_item_table
+      - views.view.commerce_orders
+      - views.view.commerce_user_orders
+    commerce_payment:
+      - field.field.user.user.commerce_remote_id
+      - field.storage.user.commerce_remote_id
+      - views.view.commerce_order_payments
+    commerce_product:
+      - views.view.commerce_products
+  actions:
+    core.entity_form_display.node.event.default:
+      setComponent:
+        name: field_event__product
+        options:
+          type: inline_entity_form_complex
+          weight: 51
+          region: content
+          settings:
+            form_mode: inline_entity_form
+            override_labels: false
+            label_singular: ''
+            label_plural: ''
+            allow_new: true
+            allow_existing: false
+            match_operator: CONTAINS
+            allow_duplicate: false
+            collapsible: false
+            collapsed: false
+            revision: false
+            removed_reference: keep
+    core.entity_view_display.node.event.default:
+      simpleConfigUpdate:
+        third_party_settings.layout_builder.sections.0.components.234adc50-b2c9-4e06-b20d-f2ce7254e112:
+          uuid: 234adc50-b2c9-4e06-b20d-f2ce7254e112
+          region: content
+          configuration:
+            id: 'field_block:node:event:field_event__product'
+            label: Ticket
+            label_display: '0'
+            provider: layout_builder
+            context_mapping:
+              entity: layout_builder.entity
+              view_mode: view_mode
+            formatter:
+              type: entity_reference_entity_view
+              label: hidden
+              settings:
+                view_mode: default
+              third_party_settings: { }
+          weight: 10
+          additional: { }
+          third_party_settings: { }

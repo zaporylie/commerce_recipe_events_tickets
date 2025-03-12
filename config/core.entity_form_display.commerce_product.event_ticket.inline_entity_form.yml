@@ -1,0 +1,44 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.event_ticket
+    - core.entity_form_mode.commerce_product.inline_entity_form
+  module:
+    - commerce_product
+id: commerce_product.event_ticket.inline_entity_form
+targetEntityType: commerce_product
+bundle: event_ticket
+mode: inline_entity_form
+content:
+  stores:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: 'Enter product title as it will be displayed in order confirmation'
+    third_party_settings: {  }
+  variations:
+    type: commerce_product_single_variation
+    weight: 2
+    region: content
+    settings:
+      form_mode: inline_entity_form
+      field_title_text: 'Product information'
+    third_party_settings: {  }
+hidden:
+  created: true
+  path: true
+  publish_on: true
+  publish_state: true
+  status: true
+  uid: true
+  unpublish_on: true
+  unpublish_state: true

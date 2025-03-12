@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: event_ticket
+label: 'Event Ticket'
+traits: {  }
+locked: false
+orderItemType: event_ticket
+generateTitle: true

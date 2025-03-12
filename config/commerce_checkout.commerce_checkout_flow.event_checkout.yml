@@ -1,0 +1,69 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_payment
+label: 'Event Checkout'
+id: event_checkout
+plugin: multistep_default
+configuration:
+  display_checkout_progress: true
+  display_checkout_progress_breadcrumb_links: true
+  guest_order_assign: true
+  guest_new_account: true
+  guest_new_account_notify: false
+  panes:
+    login:
+      display_label: null
+      step: login
+      weight: 0
+      wrapper_element: null
+      allow_guest_checkout: true
+      allow_registration: false
+      registration_form_mode: register
+    contact_information:
+      display_label: null
+      step: order_information
+      weight: 1
+      wrapper_element: fieldset
+      double_entry: false
+    payment_information:
+      display_label: null
+      step: order_information
+      weight: 2
+      wrapper_element: fieldset
+      require_payment_method: false
+    review:
+      display_label: null
+      step: review
+      weight: 3
+      wrapper_element: null
+    payment_process:
+      display_label: null
+      step: payment
+      weight: 4
+      wrapper_element: container
+      capture: true
+    completion_message:
+      display_label: null
+      step: complete
+      weight: 5
+      wrapper_element: null
+      message:
+        value: "Your order number is [commerce_order:order_number].\r\nYou can view your order on your account page when logged in."
+        format: plain_text
+    order_summary:
+      step: _sidebar
+      weight: 6
+      wrapper_element: container
+      view: event_checkout_order_summary
+    completion_register:
+      display_label: null
+      step: _disabled
+      weight: 7
+      wrapper_element: null
+    customer_comments:
+      display_label: null
+      step: _disabled
+      weight: 8
+      wrapper_element: fieldset
