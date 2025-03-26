@@ -5,7 +5,8 @@
     "license": ["GPL-2.0-or-later"],
     "require": {
         "drupal/core": ">=10.3",
-        "drupal/drupal_cms_events": "~1.0.0"
-    },
-    "version": "1.0.2"
+        "drupal/drupal_cms_events": "^1",
+        "drupal/commerce_recipe_core": "^1",
+        "drupal/commerce_recipe_user_roles": "^1"
+    }
 }

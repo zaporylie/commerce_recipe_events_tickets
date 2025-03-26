@@ -1,11 +1,10 @@
 name: Events Tickets
-description: Adds option to purchase tickets on top of Drupal CMS Events recipe.
-type: Drupal CMS
+description: Adds ability to purchase tickets for Events.
+type: Commerce
 recipes:
   - drupal_cms_events
+  - commerce_recipe_core
 install:
-  - commerce_product
-  - commerce_checkout
   - commerce_payment_example
 config:
   strict: false
